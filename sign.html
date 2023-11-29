@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.form {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+h3 {
+            color: #000000;
+            text-align: center;
+        }
+
+h4 {
+            color: #000000;
+            text-align:center;
+        }
+.cta-button >a {
+    text-align: center;
+    width: 50%;
+    padding: 2px;
+    height: 50%;
+
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form">
+      <form action="/register" method="post">
+        <h1>Sign Up</h1>
+        <input type="text" name="name" placeholder="Your name">
+        <input type="email" name="email" placeholder="Your email">
+        <input type="password" name="password" placeholder="Your password">
+        <input type="password" name="confirm_password" placeholder="Confirm your password">
+        <input type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+  <a href="log.html" class="cta-button"><h4>Log In! Apabila Punya Akun</h4></a>
+  <a href="tugas-sms-1.html" class="cta-button"><h4>Kembali Ke Halaman Utama</h4></a>
+</body>
+</html>
