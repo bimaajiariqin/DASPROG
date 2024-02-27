@@ -13,16 +13,17 @@
         <h1 class="logo">
             <a href="#">Indonesia</a>
         </h1>
-        <a href="sign.html"class="btn-sign-up">Sign Up</a>
+        <a href="index.php"class="btn-sign-up">LogIn</a>
     </nav>
  <div class= "header-title">JATIM</div>
  <div class="header-bottom">
     <a class="today-date">21 <span>/ 11</span></a>
     <div id="sevices" class="services">
       <ul class="social-media">
-        <li><a href="tugas-sms-1.html">Beranda</a></li>
-        <li><a href="tentang.html" >Tentang</a></li>
-        <li><a href="pro.html">Profil</a></li>
+        <li><a href="tugas-sms-1.php">Beranda</a></li>
+        <li><a href="tentang.php" >Tentang</a></li>
+        <li><a href="penampilan.php">Penampilan</a></li>
+        <li><a href="pro.php">Profil</a></li>
       </ul>
     </div>
  </div>

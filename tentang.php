@@ -9,29 +9,17 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-body {
-    background-color: black;
-    color: rgb(255, 255, 255);
-    text-align: center;
-}
 
 body {
  font-family: 'Arial', sans-serif;
- background-image:url("pexels-guntur-kresno-9348011.jpg");
+ background-image:url("pexels-onisam-2916337.jpg");
  background-repeat: no-repeat;
  background-size: cover;
+ text-align: center;
+ background-color: #000000;
         }
 
-header {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background: url("4-Pendopo.jpeg");
-    background-size: cover;
-    background-position: center;
-}
+
 
         header {
             padding: 1em;
@@ -176,7 +164,7 @@ header {
 
     </ul>
 </div>
-  <a href="tugas-sms-1.html" class="cta-button"><h4>Kembali Ke Halaman Utama</h4></a>  
+  <a href="tugas-sms-1.php" class="cta-button"><h4>Kembali Ke Halaman Utama</h4></a>  
       
   <br>
   <br>

@@ -10,7 +10,7 @@
             padding: 100px;
             font-family: 'Quicksand', sans-serif;
             background-image: none;
-            background-color: rgba(197, 196, 196, 0.651);
+            background-color:chocolate
         }
 
         ul{
@@ -76,7 +76,7 @@
             Saya berumur 15 tahun. Lahir di Surabaya
         </p>
         
-        <a href="tugas-sms-1.html" class="cta-button"><h4>Kembali Ke Halaman Utama</h4></a>  
+        <a href="tugas-sms-1.php" class="cta-button"><h4>Kembali Ke Halaman Utama</h4></a>  
         <ul>
             <li><a href="https://www.instagram.com/bima.gtw/"><img src="ig.jpeg" width="25px" height="25px" alt=""></a></li>
             <li><a href="https://twitter.com/AjiAriqin29839"><img src="x.png" width="25px" height="25px" alt=""></a></li>
