@@ -2,8 +2,8 @@
 function register ($data){
 
     $nama =$data['nama'];
-    $password =$data['password'];
     $username =$data['username'];
+    $password =$data['password'];
     $email=$data['email'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
@@ -26,7 +26,7 @@ if ($mysqli->connect_error) {
 }
 
 
-$query = "INSERT INTO user VALUES ('$nama','$password','$username','','$email')";
+$query = "INSERT INTO user VALUES ('','$nama','$username','$password','$email')";
 if ($mysqli->query($query)) {
     header("location: tugas-sms-1.php");
 

@@ -41,7 +41,7 @@ if(isset($_POST["login"])){
                 <input type="text" id="password" name="username" placeholder="Username">
                 <input type="password" id="username" name="password"placeholder="Password">
                 <?php if(isset($error)):?>
-                <p align="center" style="color : red; font-style:italic;">Password / Username Salah Bosss</p>
+                <p align="center" style="color : red; font-style:italic;">Password / Username Njenengan Salah</p>
                 <?php endif;?>       
                 <button type="submit"  name="login">Login</button>
             </form>

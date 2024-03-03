@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Kebudayaan Jawa Timur</title>
     <link rel="stylesheet" href="gtau.css">
-
 </head>
 <body>
 <!--header-->

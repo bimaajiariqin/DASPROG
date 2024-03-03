@@ -39,17 +39,19 @@ if(isset($_POST['register'])){
                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
                 </div>
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email">
                 </div>
+                
+                
                 <button name="register" type="submit" class="btn btn-primary">Register</button>
 
 
