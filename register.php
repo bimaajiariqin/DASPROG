@@ -50,7 +50,11 @@ if(isset($_POST['register'])){
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email">
                 </div>
-                
+                <div class="form-group">
+                    <label for="role">role</label>
+                    <input type="role" class="form-control" id="role" name="role" placeholder="Masukkan role">
+                </div>
+
                 
                 <button name="register" type="submit" class="btn btn-primary">Register</button>
 
