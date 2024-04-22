@@ -22,7 +22,7 @@ header {
     position: relative;
     display: flex;
     flex-direction: column;
-    background: url("4-Pendopo.jpeg");
+    background: url("pexels-dio-hasbi-saniskoro-1009949.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -84,15 +84,17 @@ font-weight: 500;
     font-size: 1.5rem;
 }
 
-.social-media {
+.navigation {
     display: flex;
     list-style: none;
     width: 350px;
     justify-content: space-between;
     align-items: center;
+    
+   
 }
 
-.social-media li a {
+.navigation li a {
     color: #ffffff;
 }
 

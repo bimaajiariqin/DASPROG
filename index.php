@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
 
@@ -10,12 +11,30 @@ if(isset($_POST["login"])){
     $result = mysqli_query($mysqli," SELECT * FROM user WHERE username= '$username' AND password='$password'");
 
     //cek username
-    if( mysqli_num_rows($result ) === 1){
+    if( mysqli_num_rows($result )>0){
     $row =mysqli_fetch_assoc($result );
-        header("location: tugas-sms-1.php");
-        echo "<script>
-        alert('Salamat Datang!')</script>";
-        exit;
+    if($row['role']=="Admin"){
+
+
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = 'Admin';
+        //alihkan ke halaman dashboard admin
+        header("location:view.php");
+
+    //cek jika user login sebagai user        
+    }
+    else if($row['role']=="User"){
+        //buat session login dan username   
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = 'User';
+        //alihkan ke halaman dashboard user
+        header("location:tugas-sms-1.php");
+
+    }else{
+
+        //alihkan ke halaman user kembali
+        header("location:index.php");
+    }
 }
 
 
@@ -30,18 +49,18 @@ if(isset($_POST["login"])){
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, intial-scale=1.0">
-        <title>LogIn</title>
+        <title>halaman Login</title>
         <link rel="stylesheet" href="login.css">
     
     </head>
     <body>
         <div class="container">
-            <h1>LogIn</h1><br>
+            <h1>LOG-IN</h1><br>
             <form action="" method="post">
-                <input type="text" id="password" name="username" placeholder="Username">
-                <input type="password" id="username" name="password"placeholder="Password">
+                <input type="text" id="password" name="username" placeholder="username">
+                <input type="password" id="username" name="password"placeholder="password">
                 <?php if(isset($error)):?>
-                <p align="center" style="color : red; font-style:italic;">Password / Username Njenengan Salah</p>
+                <p align="center" style="color : red; font-style:italic;">Password / Username Salah Bosss</p>
                 <?php endif;?>       
                 <button type="submit"  name="login">Login</button>
             </form>

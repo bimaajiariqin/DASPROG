@@ -10,15 +10,16 @@
 <header>
     <nav>
         <h1 class="logo">
-            <a href="#">Indonesia</a>
+            <a href="#">JATIM</a>
         </h1>
         <a href="index.php"class="btn-sign-up">LogIn</a>
     </nav>
- <div class= "header-title">JATIM</div>
+ <div class= "header-title">TRAJA <br> 
+ </div>
  <div class="header-bottom">
     <a class="today-date">21 <span>/ 11</span></a>
     <div id="sevices" class="services">
-      <ul class="social-media">
+      <ul class="navigation">
         <li><a href="tugas-sms-1.php">Beranda</a></li>
         <li><a href="tentang.php" >Tentang</a></li>
         <li><a href="penampilan.php">Penampilan</a></li>

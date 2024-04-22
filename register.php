@@ -36,23 +36,23 @@ if(isset($_POST['register'])){
             <form action="" method="post">
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama">
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" required>
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username"required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password"required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email"required>
                 </div>
                 <div class="form-group">
-                    <label for="role">role</label>
-                    <input type="role" class="form-control" id="role" name="role" placeholder="Masukkan role">
+                    <label for="role">Role</label>
+                    <input type="role" class="form-control" id="role" name="role" placeholder="Masukkan Role"required>
                 </div>
 
                 
