@@ -7,7 +7,7 @@ if(isset($_POST['simpan'])){
     $id = $_POST['id'];
     $nama = $_POST['nama']; 
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password'];
     $email= $_POST['email'];
     $role = $_POST['role'];
     

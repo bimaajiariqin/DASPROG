@@ -22,7 +22,7 @@
       <ul class="navigation">
         <li><a href="tugas-sms-1.php">Beranda</a></li>
         <li><a href="tentang.php" >Tentang</a></li>
-        <li><a href="penampilan.php">Penampilan</a></li>
+        <li><a href="event.php">Penampilan Tari</a></li>
         <li><a href="pro.php">Profil</a></li>
       </ul>
     </div>

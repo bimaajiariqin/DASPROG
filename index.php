@@ -55,7 +55,7 @@ if(isset($_POST["login"])){
     </head>
     <body>
         <div class="container">
-            <h1>LOG-IN</h1><br>
+            <h1>LOGIN</h1><br>
             <form action="" method="post">
                 <input type="text" id="password" name="username" placeholder="username">
                 <input type="password" id="username" name="password"placeholder="password">

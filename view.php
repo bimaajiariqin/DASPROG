@@ -40,13 +40,13 @@ a:hover {
 <body>
     <table border="1">
         <tr>
-            <th>no</th>
-            <th>nama</th>
-            <th>password</th>
-            <th>email</th>
-            <th>role</th>
-            <th>hapus</th>
-            <th>edit</th>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Hapus</th>
+            <th>Edit</th>
         </tr>
     
 
@@ -75,6 +75,48 @@ while($data= mysqli_fetch_array($query_mysql)){
 
 </tr>
 </table>
+
+<table border="1">
+        <tr>
+            <th>No</th>
+            <th>Nama Event</th>
+            <th>Hari</th>
+            <th>Tanggal</th>
+            <th>Lokasi</th>
+            <th>Hapus</th>
+            <th>Edit</th>
+        </tr>
+    
+
+
+<?php
+
+$nomor=1;
+
+$mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
+
+$query_mysql=mysqli_query($mysqli, "SELECT * FROM event ") or die (mysqli_error());
+
+while($data= mysqli_fetch_array($query_mysql)){
+?>
+
+<tr>
+    <td><?php echo $nomor++;?></td>
+    <td><?php echo $data["nama_event"];?></td>
+    <td><?php echo $data["hari"];?></td>
+    <td><?php echo $data["tanggal"];?></td>
+    <td><?php echo $data["lokasi"];?></td>
+    <td><span><a href='delete_event.php?id=<?php echo $data["id_event"];?>'>Hapus</a></span></td>
+    <td><span><a href='edit_event.php?id=<?php echo $data["id_event"];?>'>Edit</a></span></td>
+    <?php
+    }?>
+
+</tr>
+<td>
+<a href="tambah_event.php">Tambah Event</a>
+</td>
+</table>
+
 <a href="index.php">Kembali</a>
 </body>
 </html>

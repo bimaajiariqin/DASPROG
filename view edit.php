@@ -14,7 +14,7 @@ while($user_data = mysqli_fetch_array($result))
 {
 $nama = $user_data['nama']; 
 $username = $user_data['username'];
-$password = md5($user_data['password']);
+$password =$user_data['password'];
 $email = $user_data['email']; 
 $role = $user_data['role'];
 }
@@ -55,8 +55,8 @@ $role = $user_data['role'];
                     <td>
                         <select name="role" id="role" required>
                             <option disabled selected><?php echo $role ?></option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
                         </select>
                     </td>
                 </tr>
