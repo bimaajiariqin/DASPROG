@@ -38,13 +38,15 @@ a:hover {
     </style>
 </head>
 <body>
-    <table border="1">
+
+<table border="1">
         <tr>
             <th>No</th>
-            <th>Nama</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Role</th>
+            <th>Nama Event</th>
+            <th>Hari</th>
+            <th>Tanggal</th>
+            <th>Lokasi</th>
+            <th>Harga</th>
             <th>Hapus</th>
             <th>Edit</th>
         </tr>
@@ -57,24 +59,30 @@ $nomor=1;
 
 $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
 
-$query_mysql=mysqli_query($mysqli, "SELECT * FROM user ") or die (mysqli_error());
+$query_mysql=mysqli_query($mysqli, "SELECT * FROM event ") or die (mysqli_error());
 
 while($data= mysqli_fetch_array($query_mysql)){
 ?>
 
 <tr>
     <td><?php echo $nomor++;?></td>
-    <td><?php echo $data["nama"];?></td>
-    <td><?php echo $data["password"];?></td>
-    <td><?php echo $data["email"];?></td>
-    <td><?php echo $data["role"];?></td>
-    <td><span><a href='delete.php?id=<?php echo $data["id"];?>'>Hapus</a></span></td>
-    <td><span><a href='view edit.php?id=<?php echo $data["id"];?>'>Edit</a></span></td>
+    <td><?php echo $data["nama_event"];?></td>
+    <td><?php echo $data["hari"];?></td>
+    <td><?php echo $data["tanggal"];?></td>
+    <td><?php echo $data["lokasi"];?></td>
+    <td><?php echo $data["harga"];?></td>
+    <td><?php echo $data["tickets_available"];?></td>
+    <td><span><a href='delete_event.php?id=<?php echo $data["id_event"];?>'>Hapus</a></span></td>
+    <td><span><a href='edit_event.php?id=<?php echo $data["id_event"];?>'>Edit</a></span></td>
     <?php
     }?>
 
 </tr>
+<td>
+<a href="tambah_event.php">Tambah Event</a>
+</td>
 </table>
+
 <a href="lpadmin.php">Kembali</a>
 </body>
 </html>

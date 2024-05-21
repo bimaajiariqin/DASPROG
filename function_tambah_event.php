@@ -5,6 +5,8 @@ function event ($data){
     $hari =$data['hari'];
     $tanggal =$data['tanggal'];
     $lokasi=$data['lokasi'];
+    $harga=$data['harga'];
+    $tickets_available=$data['tickets_available'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
 
@@ -26,9 +28,9 @@ if ($mysqli->connect_error) {
 }
 
 
-$query = "INSERT INTO event VALUES ('','$nama_event','$hari','$tanggal','$lokasi')";
+$query = "INSERT INTO event VALUES ('','$nama_event','$hari','$tanggal','$lokasi','$harga', '$tickets_available')";
 if ($mysqli->query($query)) {
-    header("location:view.php");
+    header("location:view_event.php");
 
 } else {
     echo "Error: " . $mysqli->error;

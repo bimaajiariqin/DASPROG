@@ -50,6 +50,14 @@ if(isset($_POST['event'])){
                     <label for="lokasi">Lokasi</label>
                     <input type="text" class="form-control" id="lokasi" name="lokasi" placeholder="Masukkan Lokasi"required>
                 </div>
+                <div class="form-group">
+                    <label for="lokasi">Harga</label>
+                    <input type="decimal" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga"required>
+                </div>
+                <div class="form-group">
+                    <label for="lokasi">Tickets Available</label>
+                    <input type="text" class="form-control" id="tickets_available" name="tickets_available" placeholder="Masukkan tickets vailable"required>
+                </div>
                 
                 <button name="event" type="submit" class="btn btn-primary">Tambah</button>
 

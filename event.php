@@ -95,7 +95,9 @@ h1 {
             <th>Hari</th>
             <th>Tanggal</th>
             <th>Lokasi</th>
-            <th>Info Selengkapnya</th>
+            <th>Harga</th>
+            <th>Stok Tiket</th>
+            <th>Info Pemesanan</th>
         </tr>
     
 
@@ -117,7 +119,9 @@ while($data= mysqli_fetch_array($query_mysql)){
     <td><?php echo $data["hari"];?></td>
     <td><?php echo $data["tanggal"];?></td>
     <td><?php echo $data["lokasi"];?></td>
-    <td><a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>" class="btn-daftar">Info Selengkapnya</a></td>
+    <td><?php echo $data["harga"];?></td>
+    <td><?php echo $data["tickets_available"];?></td>
+    <td><a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>" class="btn-daftar">Info Pemesanan</a></td>
     <?php }?>
 
 </tr>

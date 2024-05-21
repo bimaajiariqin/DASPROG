@@ -18,6 +18,7 @@ $nama_event = $event_data['nama_event'];
 $hari = $event_data['hari'];
 $tanggal =$event_data['tanggal'];
 $lokasi = $event_data['lokasi'];
+$harga = $event_data['harga'];
 }
 ?>
 
@@ -50,6 +51,10 @@ $lokasi = $event_data['lokasi'];
                 <tr>
                 <td>Lokasi</td>
                 <td><input type="text" name="lokasi" value="<?php echo $lokasi;?>"></td>
+                </tr>
+                <tr>
+                <td>Harga</td>
+                <td><input type="text" name="harga" value="<?php echo $harga;?>"></td>
                 </tr>
             <tr>
                 <td><input type="hidden" name="id_event" value=<?php echo $_GET['id'];?>></td>

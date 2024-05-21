@@ -1,151 +1,122 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pembelian Tiket</title>
+    <title>Pemesanan Tiket</title>
     <style>
-        /* style.css */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-}
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
 
-.form-group {
-    margin-bottom: 20px;
-}
+        input, select {
+            width: calc(100% - 16px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
 
-.seat-selection {
-    display: grid;
-    grid-template-columns: repeat(12, 40px); /* 5 kolom */
-    grid-gap: 10px;
-}
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
 
-input[type="checkbox"] {
-    display: none;
-}
-
-label {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: #ddd;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-}
-
-input[type="checkbox"]:checked + label {
-    background-color: #4CAF50;
-    color: white;
-}
-
-button[type="submit"] {
-  background-color: #4CAF50; /* Warna latar hijau */
-  color: white; /* Warna teks putih */
-  padding: 10px 20px; /* Ukuran padding */
-  font-size: 16px; /* Ukuran teks */
-  border: none; /* Tanpa border */
-  cursor: pointer; /* Mengubah kursor saat hover */
-  border-radius: 5px; /* Membuat sudut melengkung */
-}
-
-button[type="submit"]:hover {
-  background-color: #45a049; /* Warna latar saat hover */
-}
-
-
-/* Style for back button */
-.pencet {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f44336;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button {
-        float: right; /* float kanan */
-    }
-
-.pencet:hover {
-    background-color: #d32f2f;
-}
+        .error-message {
+            color: #d63031;
+            margin-top: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Pemesanan</h1>
-        <form action="proses_pemilihan.php" method="POST">
-            <div class="form-group">
-                <label for="nama">Nama:</label>
-                <input type="text" id="nama" name="nama" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label>Pilih:</label>
-                <div class="seat-selection">
-                    <?php
-                    // Generate seat options dynamically
-                    $total_seats = 60; // Jumlah total kursi
-                    for ($i = 1; $i <= $total_seats; $i++) {
-                        echo '<input type="checkbox" id="seat'.$i.'" name="selected_seats[]" value="'.$i.'">';
-                        echo '<label for="seat'.$i.'">'.$i.'</label>';
-                    }
-                    ?>
-                </div>
-            </div>
-            <input type="hidden" name="event_id" value="<?php echo $_GET['event_id']; ?>">
-            <button type="submit">Pesan</button>
-        </form>
-        <div>
-<a href="event.php" class="pencet">Kembali</a>
-  </div> 
-    </div>
+        <h1>Pemesanan Tiket</h1>
+        <form action="function_pemesanan.php" method="POST">
+            <label for="username">Nama Pengguna:</label>
+            <input type="text" id="username" name="username" required>
 
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="event">Acara:</label>
+            <select id="event" name="id_event" required>
+                <!-- Pilihan acara akan diisi secara dinamis menggunakan PHP -->
+                <?php
+                // Koneksi ke database
+                $conn = new mysqli('localhost', 'root', '', 'web_tarian');
+                if ($conn->connect_error) {
+                    die("Koneksi gagal: " . $conn->connect_error);
+                }
+
+                $sql = "SELECT id_event, nama_event FROM event";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='{$row['id_event']}'>{$row['nama_event']}</option>";
+                    }
+                }
+
+                // Ambil id_tarian dari tabel tarian
+                $tarian_sql = "SELECT id_tarian FROM tarian LIMIT 1"; // Asumsi menggunakan id_tarian pertama
+                $tarian_result = $conn->query($tarian_sql);
+                $id_tarian = '';
+                if ($tarian_result->num_rows > 0) {
+                    $tarian_row = $tarian_result->fetch_assoc();
+                    $id_tarian = $tarian_row['id_tarian'];
+                }
+
+                $conn->close();
+                ?>
+            </select>
+
+            <label for="quantity">Jumlah Pembelian:</label>
+            <input type="number" id="jumlah_pembelian" name="jumlah_pembelian" min="1" max="5" required>
+
+            <input type="hidden" name="id_tarian" value="<?php echo $id_tarian; ?>">
+
+            <input type="submit" value="Pesan">
+        </form>
+    </div>
 </body>
 </html>
