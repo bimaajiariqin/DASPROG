@@ -93,6 +93,17 @@ label {
     margin-top: 5px;
 }
 
+.forgot {
+  color: #333;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
@@ -120,14 +131,23 @@ label {
                 </div>
                 <div class="form-group">
                     <label for="role">Role</label>
-                    <input type="role" class="form-control" id="role" name="role" placeholder="Masukkan Role"required>
-                </div>
+                     <select class="form-control" id="role" name="role" required>
+                       <option value="" disabled selected>Pilih Role</option>
+                       <option value="Admin">Admin</optio>
+                       <option value="User">User</option>
+                     </select>
+                    </div>
+
 
                 
                 <button name="register" type="submit" class="btn btn-primary">Register</button>
 
 
             </form>
+            <div>
+           <a class="forgot" href="index.php">Login</a>    
+            </div>
+        </div>
         </div>
     </div>
 </div>

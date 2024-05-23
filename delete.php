@@ -1,8 +1,18 @@
 <?php
 $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
-    $id=$_GET["id"];
+if ($mysqli->connect_error) {
+    die("Koneksi gagal: " . $mysqli->connect_error);
+}
 
-    $result= mysqli_query($mysqli, "DELETE FROM user WHERE id='$id'");
-    header("location:view.php")
+$id = $mysqli->real_escape_string($_GET["id"]);
 
+$delete_event = "DELETE FROM event WHERE id_event='$id'";
+if ($mysqli->query($delete_event) === TRUE) {
+    header("Location: view_event.php");
+    exit();
+} else {
+    echo "Error: " . $mysqli->error;
+}
+
+$mysqli->close();
 ?>

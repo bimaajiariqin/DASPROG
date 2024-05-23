@@ -5,129 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZIP LAST</title>
     <style>
-        /* Style for table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            background: url("pexels-capung-purnomo-2609952.jpg");
+            background-size: cover;
+            background-position: center;
+        }
 
-th, td {
-    padding: 10px;
-    text-align: left;
-}
+        .badan {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: url("pexels-capung-purnomo-2609952.jpg");
+            background-size: cover;
+            background-position: center;
+        }
 
-th {
-    background-color: #f2f2f2;
-}
+        h1 {
+            text-align: center;
+            color: white;
+        }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+        .event-card {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
 
-/* Style for button */
-.btn-daftar {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
 
-.btn-daftar:hover {
-    background-color: #45a049;
-}
+        .event-card h2 {
+            margin-top: 0;
+            color: #333;
+        }
 
-/* Style for back button */
-.pencet {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f44336;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
 
-.pencet:hover {
-    background-color: #d32f2f;
-}
+        .event-details div {
+            flex: 1 1 45%;
+            margin-bottom: 10px;
+        }
 
-/* Body style */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-}
+        .event-details div strong {
+            display: block;
+            color: #555;
+        }
 
-.badan {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+        .event-details div span {
+            color: #777;
+        }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .btn-daftar, .pencet {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
 
+        .btn-daftar:hover, .pencet:hover {
+            background: #0056b3;
+        }
+
+        .pencet {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
-<body >
-      <section class="badan" >  <h1>Jadwal Event</h1>
-      <body>
-    <table border="1" >
-        <tr>
-            <th >No</th>
-            <th>Nama Event</th>
-            <th>Hari</th>
-            <th>Tanggal</th>
-            <th>Lokasi</th>
-            <th>Harga</th>
-            <th>Stok Tiket</th>
-            <th>Info Pemesanan</th>
-        </tr>
-    
+<body>
+    <section class="badan">
+        <h1>Jadwal Event</h1>
+        <?php
+        $nomor = 1;
+        $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
+        $query_mysql = mysqli_query($mysqli, "SELECT * FROM event") or die(mysqli_error($mysqli));
 
-
-<?php
-
-$nomor=1;
-
-$mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
-
-$query_mysql=mysqli_query($mysqli, "SELECT * FROM event ") or die (mysqli_error());
-
-while($data= mysqli_fetch_array($query_mysql)){
-?>
-
-<tr>
-    <td><?php echo $nomor++;?></td>
-    <td><?php echo $data["nama_event"];?></td>
-    <td><?php echo $data["hari"];?></td>
-    <td><?php echo $data["tanggal"];?></td>
-    <td><?php echo $data["lokasi"];?></td>
-    <td><?php echo $data["harga"];?></td>
-    <td><?php echo $data["tickets_available"];?></td>
-    <td><a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>" class="btn-daftar">Info Pemesanan</a></td>
-    <?php }?>
-
-</tr>
-</table>
-<div>
-<a href="tugas-sms-1.php" class="pencet">Kembali</a>
-  </div> 
-</section>
- </body>
+        while ($data = mysqli_fetch_array($query_mysql)) {
+        ?>
+        <div class="event-card">
+            <h2><?php echo $data["nama_event"]; ?></h2>
+            <div class="event-details">
+                <div>
+                    <strong>Hari:</strong>
+                    <span><?php echo $data["hari"]; ?></span>
+                </div>
+                <div>
+                    <strong>Tanggal:</strong>
+                    <span><?php echo $data["tanggal"]; ?></span>
+                </div>
+                <div>
+                    <strong>Lokasi:</strong>
+                    <span><?php echo $data["lokasi"]; ?></span>
+                </div>
+                <div>
+                    <strong>Harga:</strong>
+                    <span><?php echo $data["harga"]; ?></span>
+                </div>
+                <div>
+                    <strong>Stok Tiket:</strong>
+                    <span><?php echo $data["stok"]; ?></span>
+                </div>
+            </div>
+            <a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>" class="btn-daftar">Info Pemesanan</a>
+        </div>
+        <?php } ?>
+        <a href="tugas-sms-1.php" class="pencet">Kembali</a>
+    </section>
+</body>
+</html>

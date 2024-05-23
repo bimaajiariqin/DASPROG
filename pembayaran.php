@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT t.total, u.username, e.nama_event, tar.nama_tarian
+$sql = "SELECT t.total, u.username, u.email, e.nama_event, tar.nama_tarian
         FROM transaksi t
         JOIN user u ON t.id_user = u.id
         JOIN event e ON t.id_event = e.id_event
@@ -117,12 +117,31 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+
+a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff; /* Warna teks */
+    background-color: red; /* Warna latar belakang */
+    border: none;
+    border-radius: 5px; /* Sudut yang melengkung */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    text-align: center;
+    transition: background-color 0.3s ease; /* Animasi transisi */
+}
+
+a.btn:hover {
+    background-color: #0056b3; /* Warna latar belakang saat hover */
+}
+
 </style>
 </head>
 <body>
     <div class="container">
         <h1>Pembayaran</h1>
         <p>Username: <?= htmlspecialchars($transaksi['username']) ?></p>
+        <p>Email: <?= htmlspecialchars($transaksi['email']) ?></p>
         <p>Event: <?= htmlspecialchars($transaksi['nama_event']) ?></p>
         <p>Tarian: <?= htmlspecialchars($transaksi['nama_tarian']) ?></p>
         <p>Total Harga: Rp<?= number_format($transaksi['total'], 2, ',', '.')  ?></p>
@@ -141,6 +160,7 @@ button[type="submit"]:hover {
 
             <button type="submit">Bayar</button>
         </form>
+        <a href="tugas-sms-1.php" class="btn">Kembali</a>
     </div>
 </body>
 </html>

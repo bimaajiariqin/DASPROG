@@ -14,6 +14,9 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      background: url("pexels-onisam-2916337.jpg");
+            background-size: cover;
+            background-position: center;
     }
     
     .row {
@@ -104,5 +107,6 @@
                     </div>
                 <?php } ?>
         </div>
+        <a href="tugas-sms-1.php" class="btn">Kembali</a>
 </body>
 </html>

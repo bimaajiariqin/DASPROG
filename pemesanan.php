@@ -66,6 +66,24 @@
             margin-top: 5px;
             font-size: 14px;
         }
+
+        a.btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        a.btn:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
@@ -80,7 +98,6 @@
 
             <label for="event">Acara:</label>
             <select id="event" name="id_event" required>
-                <!-- Pilihan acara akan diisi secara dinamis menggunakan PHP -->
                 <?php
                 // Koneksi ke database
                 $conn = new mysqli('localhost', 'root', '', 'web_tarian');
@@ -97,15 +114,6 @@
                     }
                 }
 
-                // Ambil id_tarian dari tabel tarian
-                $tarian_sql = "SELECT id_tarian FROM tarian LIMIT 1"; // Asumsi menggunakan id_tarian pertama
-                $tarian_result = $conn->query($tarian_sql);
-                $id_tarian = '';
-                if ($tarian_result->num_rows > 0) {
-                    $tarian_row = $tarian_result->fetch_assoc();
-                    $id_tarian = $tarian_row['id_tarian'];
-                }
-
                 $conn->close();
                 ?>
             </select>
@@ -113,10 +121,9 @@
             <label for="quantity">Jumlah Pembelian:</label>
             <input type="number" id="jumlah_pembelian" name="jumlah_pembelian" min="1" max="5" required>
 
-            <input type="hidden" name="id_tarian" value="<?php echo $id_tarian; ?>">
-
             <input type="submit" value="Pesan">
         </form>
+        <a href="tugas-sms-1.php" class="btn">Kembali</a>
     </div>
 </body>
 </html>

@@ -47,6 +47,7 @@ a:hover {
             <th>Tanggal</th>
             <th>Lokasi</th>
             <th>Harga</th>
+            <th>Stok</th>
             <th>Hapus</th>
             <th>Edit</th>
         </tr>
@@ -71,7 +72,7 @@ while($data= mysqli_fetch_array($query_mysql)){
     <td><?php echo $data["tanggal"];?></td>
     <td><?php echo $data["lokasi"];?></td>
     <td><?php echo $data["harga"];?></td>
-    <td><?php echo $data["tickets_available"];?></td>
+    <td><?php echo $data["stok"];?></td>
     <td><span><a href='delete_event.php?id=<?php echo $data["id_event"];?>'>Hapus</a></span></td>
     <td><span><a href='edit_event.php?id=<?php echo $data["id_event"];?>'>Edit</a></span></td>
     <?php

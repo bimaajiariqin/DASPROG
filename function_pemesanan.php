@@ -10,7 +10,6 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 $id_event = $_POST['id_event'];
 $jumlah_pembelian = $_POST['jumlah_pembelian'];
-$id_tarian = $_POST['id_tarian']; // Pastikan field ini ada di form
 
 // Validasi data form
 if (empty($username) || empty($email) || empty($id_event) || empty($jumlah_pembelian) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -39,8 +38,8 @@ if ($result->num_rows > 0) {
 }
 $sql->close();
 
-// Mendapatkan detail acara menggunakan prepared statements
-$sql = $mysqli->prepare("SELECT harga FROM event WHERE id_event = ?");
+// Mendapatkan detail acara dan id_tarian menggunakan prepared statements
+$sql = $mysqli->prepare("SELECT harga, stok, id_tarian FROM event WHERE id_event = ?");
 $sql->bind_param("i", $id_event);
 $sql->execute();
 $result = $sql->get_result();
@@ -53,7 +52,28 @@ if ($result->num_rows === 0) {
 
 $event = $result->fetch_assoc();
 $harga = $event['harga'];
+$stok = $event['stok'];
+$id_tarian = $event['id_tarian'];
+
+if ($stok < $jumlah_pembelian) {
+    echo "Stok tiket tidak mencukupi.";
+    $sql->close();
+    $mysqli->close();
+    exit();
+}
+
 $total = $harga * $jumlah_pembelian;
+$sql->close();
+
+// Mengurangi stok tiket
+$sql = $mysqli->prepare("UPDATE event SET stok = stok - ? WHERE id_event = ?");
+$sql->bind_param("ii", $jumlah_pembelian, $id_event);
+if (!$sql->execute()) {
+    echo "Kesalahan: " . $sql->error;
+    $sql->close();
+    $mysqli->close();
+    exit();
+}
 $sql->close();
 
 // Menyisipkan transaksi menggunakan prepared statements
