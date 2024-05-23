@@ -230,19 +230,19 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Reach out to us for any inquiries or collaborations.</p>
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </section>
+   <!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for any inquiries or collaborations.</p>
+        <form action="masukan.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>

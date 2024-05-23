@@ -83,6 +83,7 @@ section p {
                     <li><a href="view_event.php">View Event</a></li>
                     <li><a href="view_tarian.php">View Tarian</a></li>
                     <li><a href="view_transaksi.php">View Transaksi</a></li>
+                    <li><a href="view_masukan.php">View Masukan</a></li>
                     <li><a href="index.php">LogIn</a></li>
                 </ul>
             </nav>
