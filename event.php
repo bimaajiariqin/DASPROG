@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZIP LAST</title>
+    <title>Jadwal Event</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -101,13 +101,21 @@
         <?php
         $nomor = 1;
         $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
-        $query_mysql = mysqli_query($mysqli, "SELECT * FROM event") or die(mysqli_error($mysqli));
+        $query_mysql = mysqli_query($mysqli, "
+            SELECT event.*, tarian.nama_tarian 
+            FROM event 
+            JOIN tarian ON event.id_tarian = tarian.id_tarian
+        ") or die(mysqli_error($mysqli));
 
         while ($data = mysqli_fetch_array($query_mysql)) {
         ?>
         <div class="event-card">
             <h2><?php echo $data["nama_event"]; ?></h2>
             <div class="event-details">
+                <div>
+                    <strong>Nama Tarian:</strong>
+                    <span><?php echo $data["nama_tarian"]; ?></span>
+                </div>
                 <div>
                     <strong>Hari:</strong>
                     <span><?php echo $data["hari"]; ?></span>
@@ -128,6 +136,7 @@
                     <strong>Stok Tiket:</strong>
                     <span><?php echo $data["stok"]; ?></span>
                 </div>
+                
             </div>
             <a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>" class="btn-daftar">Info Pemesanan</a>
         </div>

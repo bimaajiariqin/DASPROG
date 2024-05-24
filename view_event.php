@@ -43,6 +43,7 @@ a:hover {
         <tr>
             <th>No</th>
             <th>Nama Event</th>
+            <th>Nama Tarian</th>
             <th>Hari</th>
             <th>Tanggal</th>
             <th>Lokasi</th>
@@ -61,6 +62,11 @@ $nomor=1;
 $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
 
 $query_mysql=mysqli_query($mysqli, "SELECT * FROM event ") or die (mysqli_error());
+$query_mysql = mysqli_query($mysqli, "
+            SELECT event.*, tarian.nama_tarian 
+            FROM event 
+            JOIN tarian ON event.id_tarian = tarian.id_tarian
+        ");
 
 while($data= mysqli_fetch_array($query_mysql)){
 ?>
@@ -68,6 +74,7 @@ while($data= mysqli_fetch_array($query_mysql)){
 <tr>
     <td><?php echo $nomor++;?></td>
     <td><?php echo $data["nama_event"];?></td>
+    <td><?php echo $data["nama_tarian"];?></td>
     <td><?php echo $data["hari"];?></td>
     <td><?php echo $data["tanggal"];?></td>
     <td><?php echo $data["lokasi"];?></td>

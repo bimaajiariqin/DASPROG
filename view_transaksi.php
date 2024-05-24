@@ -49,6 +49,9 @@
         <th>Harga</th>
         <th>Total</th>
         <th>Tanggal Pembayaran</th>
+        <th>Metode Pembayaran</th>
+        <th>Detail Pembayaran</th>
+        <th>Status Pembayaran</th>
         <th>Hapus</th>
         <th>Edit</th>
     </tr>
@@ -61,8 +64,8 @@ $databasepassword = "";
 
 $mysqli = mysqli_connect($databasehost,$databaseusername , $databasepassword, $databasename);
 
-$query = "SELECT transaksi.id_transaksi, user.username, user.email,event.nama_event, tarian.nama_tarian, transaksi.jumlah_pembelian, event.harga, transaksi.total, transaksi.tanggal_pembayaran 
-FROM transaksi 
+$query = "SELECT transaksi.id_transaksi, user.username, user.email,event.nama_event, tarian.nama_tarian, transaksi.jumlah_pembelian, event.harga, transaksi.total, transaksi.tanggal_pembayaran, 
+transaksi.payment_method, transaksi.payment_details, transaksi.status  FROM transaksi 
 INNER JOIN user ON transaksi.id_user = user.id 
 INNER JOIN event ON transaksi.id_event = event.id_event
 INNER JOIN tarian ON transaksi.id_tarian = tarian.id_tarian ";
@@ -81,6 +84,9 @@ while ($data = mysqli_fetch_array($result)) {
         <td><?php echo $data["harga"]; ?></td>
         <td><?php echo $data["total"]; ?></td>
         <td><?php echo $data["tanggal_pembayaran"]; ?></td>
+        <td><?php echo $data["payment_method"]; ?></td>
+        <td><?php echo $data["payment_details"]; ?></td>
+        <td><?php echo $data["status"]; ?></td>
         <td><span><a href='delete_transaksi.php?id=<?php echo $data["id_transaksi"]; ?>'>Hapus</a></span></td>
         <td><span><a href='edit_transaksi.php?id=<?php echo $data["id_transaksi"]; ?>'>Edit</a></span></td>
     </tr>

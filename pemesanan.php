@@ -123,7 +123,7 @@
 
             <input type="submit" value="Pesan">
         </form>
-        <a href="tugas-sms-1.php" class="btn">Kembali</a>
+        <a href="event.php" class="btn">Kembali</a>
     </div>
 </body>
 </html>
