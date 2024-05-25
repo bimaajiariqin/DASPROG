@@ -233,8 +233,8 @@
    <!-- Contact Section -->
 <section class="contact-section">
     <div class="container">
-        <h2>Contact Us</h2>
-        <p>Reach out to us for any inquiries or collaborations.</p>
+        <h2>Feedback for our website</h2>
+        <p>Masukan untuk Website kita agar menjadi baik kedepan nya.</p>
         <form action="masukan.php" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
