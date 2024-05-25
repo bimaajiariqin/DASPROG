@@ -168,6 +168,38 @@
             text-align: center;
             padding: 10px 0;
         }
+
+        /* About Us Section */
+        .about-section {
+            background-color: #111111;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            margin-bottom: 30px;
+        }
+
+        .about-section p {
+            width: 80%;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #bbbbbb;
+        }
     </style>
 </head>
 <body>
@@ -243,6 +275,18 @@
         </form>
     </div>
 </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <p>Website ini didedikasikan untuk mempromosikan kebudayaan Jawa Timur, khususnya tarian tradisionalnya. Kami berupaya untuk menyediakan informasi yang kaya dan akurat tentang berbagai tarian, festival, dan acara budaya yang ada di Jawa Timur. Bergabunglah dengan kami di media sosial untuk mendapatkan update terbaru!</p>
+            <div class="social-links">
+                <a href="https://twitter.com/AjiAriqin29839" target="_blank">Twitter</a>
+                <a href="https://www.instagram.com/bima.gtw/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
