@@ -153,9 +153,6 @@ if(isset($_POST["login"])){
         <div>
             <a class="forgot" href="register.php">Register</a>    
         </div>
-        <div>
-            <a class="forgot" href="tugas-sms-1.php">Kembali Ke Halaman Utama</a>    
-        </div>
     </div>
 </body>
 </html>

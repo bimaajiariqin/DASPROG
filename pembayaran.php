@@ -122,19 +122,17 @@ a.btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    color: #fff; /* Warna teks */
-    background-color: red; /* Warna latar belakang */
+    color: #fff; 
+    background-color: red; 
     border: none;
-    border-radius: 5px; /* Sudut yang melengkung */
-    text-decoration: none; /* Menghilangkan garis bawah */
+    border-radius: 5px; 
+    text-decoration: none; 
     text-align: center;
-    transition: background-color 0.3s ease; /* Animasi transisi */
-}
-
+    transition: background-color 1s ease; 
 a.btn:hover {
-    background-color: #0056b3; /* Warna latar belakang saat hover */
+    background-color: #0056b3; 
 }
-
+}
 </style>
 </head>
 <body>
@@ -150,9 +148,9 @@ a.btn:hover {
             <input type="hidden" name="id_transaksi" value="<?= htmlspecialchars($id_transaksi) ?>">
             <label for="payment_method">Metode Pembayaran:</label>
             <select id="payment_method" name="payment_method" required>
-                <option value="credit_card">Kartu Kredit</option>
-                <option value="bank_transfer">Transfer Bank</option>
-                <option value="ewallet">E-Wallet</option>
+                <option value="Credit_Card">Kartu Kredit</option>
+                <option value="Bank_Transfer">Transfer Bank</option>
+                <option value="Ewallet">E-Wallet</option>
             </select>
 
             <label for="payment_details">Detail Pembayaran:</label>
@@ -160,7 +158,7 @@ a.btn:hover {
 
             <button type="submit">Bayar</button>
         </form>
-        <a href="tugas-sms-1.php" class="btn">Kembali</a>
+        <a href="pemesanan.php" class="btn">Kembali</a>
     </div>
 </body>
 </html>

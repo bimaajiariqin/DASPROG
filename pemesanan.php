@@ -41,11 +41,11 @@
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            transition: border-color 0.3s ease;
+            transition: border-color 1s ease;
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #0056b3;
             color: white;
             border: none;
             cursor: pointer;
@@ -53,7 +53,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
 
         input:focus, select:focus {
@@ -97,29 +97,12 @@
             <input type="email" id="email" name="email" required>
 
             <label for="event">Acara:</label>
-            <select id="event" name="id_event" required>
-                <?php
-                // Koneksi ke database
-                $conn = new mysqli('localhost', 'root', '', 'web_tarian');
-                if ($conn->connect_error) {
-                    die("Koneksi gagal: " . $conn->connect_error);
-                }
+            <input type="text" id="event" name="event_name" value="<?php echo isset($_GET['nama_event']) ? htmlspecialchars($_GET['nama_event']) : ''; ?>" readonly>
 
-                $sql = "SELECT id_event, nama_event FROM event";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<option value='{$row['id_event']}'>{$row['nama_event']}</option>";
-                    }
-                }
-
-                $conn->close();
-                ?>
-            </select>
+            <input type="hidden" name="id_event" value="<?php echo isset($_GET['event_id']) ? intval($_GET['event_id']) : ''; ?>">
 
             <label for="quantity">Jumlah Pembelian:</label>
-            <input type="number" id="jumlah_pembelian" name="jumlah_pembelian" min="1" max="5" required>
+            <input type="number" id="jumlah_pembelian" name="jumlah_pembelian" min="1" max="10" required>
 
             <input type="submit" value="Pesan">
         </form>

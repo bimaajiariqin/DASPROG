@@ -4,202 +4,204 @@
     <meta charset="UTF-8">
     <title>Kebudayaan Jawa Timur</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background: #000000;
-            color: #ffffff;
-            font-family: "Poppins", sans-serif;
-        }
+body {
+    background: #000000;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
 
-        a {
-            text-decoration: none;
-        }
+a {
+    text-decoration: none;
+}
 
-        header {
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            background: url("pexels-dio-hasbi-saniskoro-1009949.jpg");
-            background-size: cover;
-            background-position: center;
-        }
+header {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: url("pexels-dio-hasbi-saniskoro-1009949.jpg");
+    background-size: cover;
+    background-position: center;
+}
 
-        header:before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 60vh;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0));
-        }
+header:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0));
+}
 
-        nav,
-        .header-bottom {
-            display: flex;
-            justify-content: space-between;
-            padding: 2rem;
-            position: relative;
-        }
+nav,
+.header-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    position: relative;
+}
 
-        .logo a {
-            color: #ffffff;
-            font-size: 2rem;
-        }
+.logo a {
+    color: #ffffff;
+    font-size: 2rem;
+}
 
-        .btn-sign-up {
-            padding: 0.5rem 0.5rem;
-            background: #333333;
-            color: #ffffff;
-            font-weight: 500;
-            border-radius: 10px;
-            transition: .3s;
-        }
+.btn-sign-up {
+    padding: 0.5rem 0.5rem;
+    background: #333333;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: .3s;
+}
 
-        .btn-sign-up:hover {
-            background: #ffffff;
-            color: #333333;
-        }
+.btn-sign-up:hover {
+    background: #ffffff;
+    color: #333333;
+}
 
-        .header-title {
-            margin: auto auto;
-            font-size: 5rem;
-            position: relative;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+.header-title {
+    margin: auto auto;
+    font-size: 5rem;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+}
 
-        .today-date {
-            font-size: 2rem;
-            font-weight: 500;
-        }
+.today-date {
+    font-size: 2rem;
+    font-weight: 500;
+}
 
-        .today-date span {
-            font-size: 1.5rem;
-        }
+.today-date span {
+    font-size: 1.5rem;
+}
 
-        .navigation {
-            display: flex;
-            list-style: none;
-            width: 350px;
-            justify-content: space-between;
-            align-items: center;
-        }
+.navigation {
+    display: flex;
+    list-style: none;
+    width: 350px;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .navigation li a {
-            color: #ffffff;
-        }
+.navigation li a {
+    color: #ffffff;
+}
 
-        /* Section Styling */
-        section {
-            background-color: #000000;
-            padding: 50px 0;
-            text-align: center;
-        }
+/* Section Styling */
+section {
+    background-color: #000000;
+    padding: 50px 0;
+    text-align: center;
+}
 
-        section h1 {
-            margin-bottom: 30px;
-        }
+section h1 {
+    margin-bottom: 30px;
+}
 
-        /* Popular Dances Section */
-        .dances-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 20px;
-        }
+/* Popular Dances Section */
+.dances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
 
-        .dance {
-            background-color: #333333;
-            padding: 20px;
-            border-radius: 10px;
-        }
+.dance {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 10px;
+}
 
-        .dance img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
+.dance img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 25px;   //jarak gambar ke teks
+}
 
-        /* Contact Section */
-        .contact-section form {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+/* Contact Section */
+.contact-section form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .contact-section input,
-        .contact-section textarea {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            background-color: #333333;
-            color: #ffffff;
-        }
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px; //panjang kebawah
+    border-radius: 5px;
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+}
 
-        .contact-section button {
-            padding: 10px 20px;
-            background-color: #444444;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+.contact-section button {
+    padding: 10px 20px;
+    background-color: #444444;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
-        .contact-section button:hover {
-            background-color: #666666;
-        }
+.contact-section button:hover {
+    background-color: #666666;
+}
 
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-        }
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
 
-        /* About Us Section */
-        .about-section {
-            background-color: #111111;
-            padding: 50px 0;
-            text-align: center;
-        }
+/* About Us Section */
+.about-section {
+    background-color: #111111;
+    padding: 50px 0;
+    text-align: center;
+}
 
-        .about-section h2 {
-            margin-bottom: 30px;
-        }
+.about-section h2 {
+    margin-bottom: 30px;
+}
 
-        .about-section p {
-            width: 80%;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
+.about-section p {
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
-        .social-links {
-            margin-top: 20px;
-        }
+.social-links {
+    margin-top: 20px;
+}
 
-        .social-links a {
-            color: #ffffff;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
+.social-links a {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
 
-        .social-links a:hover {
-            color: #bbbbbb;
-        }
+.social-links a:hover {
+    color: #bbbbbb;
+}
+
     </style>
 </head>
 <body>
@@ -209,7 +211,7 @@
             <h1 class="logo">
                 <a href="#">JATIM</a>
             </h1>
-            <a href="index.php" class="btn-sign-up">LogIn</a>
+            <a href="logout.php" class="btn-sign-up">LogOut</a>
         </nav>
         <div class="header-title">TRAJA <br>
         </div>

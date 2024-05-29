@@ -11,12 +11,13 @@
       margin: 0;
       padding: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       background: url("pexels-onisam-2916337.jpg");
-            background-size: cover;
-            background-position: center;
+      background-size: cover;
+      background-position: center;
     }
     
     .row {
@@ -34,7 +35,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 1s, box-shadow 0.5s;
       max-width: 300px;
       margin: 10px;
       display: flex;
@@ -42,7 +43,7 @@
     }
 
     .box:hover {
-      transform: translateY(-10px);
+      transform: translateY(-30px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
@@ -60,7 +61,7 @@
 
     .box p {
       padding: 0 20px;
-      font-size: 1em;
+      font-size: 1rem;
       color: #666;
       flex-grow: 1;
     }
@@ -79,34 +80,40 @@
     .btn:hover {
       background-color: #0056b3;
     }
+
+    .back-button {
+      margin-top: 25px;
+    }
   </style>
 </head>
 <body>
-<div class="row">
-            <?php
-            // select tabel user dari database
-        
-            // isi nama host, username mysql, dan password mysql anda
-            $databasehost = "localhost";
-            $databasename = "web_tarian";
-            $databaseusername = "root";
-            $databasepassword = "";
-            
-            // Membuat koneksi
-            $mysqli = mysqli_connect($databasehost,$databaseusername , $databasepassword, $databasename);
-            $result = mysqli_query($mysqli, "SELECT * FROM tarian") or die (mysqli_error());
+  <div class="row">
+    <?php
+    
+      // isi nama host, username mysql, dan password mysql anda
+      $databasehost = "localhost";
+      $databasename = "web_tarian";
+      $databaseusername = "root";
+      $databasepassword = "";
+      
+      // Membuat koneksi
+      $mysqli = mysqli_connect($databasehost, $databaseusername, $databasepassword, $databasename);
 
-            while($data = mysqli_fetch_array($result)){
-                ?>
-                    <div class="box">
-                        <img src="<?php echo $data['foto'] ?>">
-                        <h3><?php echo $data['nama_tarian']; ?></h3>
-                        <p><?php echo $data['deskripsi_tarian']; ?></p>
-                        <div class="button"></div>
-                        <a href="pemesanan.php" class="btn">Dapatkan Tiket</a>
-                    </div>
-                <?php } ?>
-        </div>
-        <a href="tugas-sms-1.php" class="btn">Kembali</a>
+      $result = mysqli_query($mysqli, "SELECT * FROM tarian") or die (mysqli_error());
+
+      while ($data = mysqli_fetch_array($result)) {
+    ?>
+      <div class="box">
+        <img src="<?php echo $data['foto'] ?>">
+        <h3><?php echo $data['nama_tarian']; ?></h3>
+        <p><?php echo $data['deskripsi_tarian']; ?></p>
+        <div class="button"></div>
+        <a href="event.php" class="btn">Dapatkan Tiket</a>
+      </div>
+    <?php } ?>
+  </div>
+  <div class="back-button">
+    <a href="tugas-sms-1.php" class="btn">Kembali</a>
+  </div>
 </body>
 </html>

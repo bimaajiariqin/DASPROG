@@ -18,7 +18,7 @@ if (empty($username) || empty($email) || empty($id_event) || empty($jumlah_pembe
     exit();
 }
 
-// Memeriksa apakah pengguna sudah ada dengan menggunakan prepared statements
+// Memeriksa apakah pengguna sudah ada apa belum
 $sql = $mysqli->prepare("SELECT id, username FROM user WHERE email = ?");
 $sql->bind_param("s", $email);
 $sql->execute();
@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 }
 $sql->close();
 
-// Mendapatkan detail acara dan id_tarian menggunakan prepared statements
+// Mendapatkan detail acara dan id_tarian
 $sql = $mysqli->prepare("SELECT harga, stok, id_tarian FROM event WHERE id_event = ?");
 $sql->bind_param("i", $id_event);
 $sql->execute();

@@ -68,7 +68,7 @@ while($data= mysqli_fetch_array($query_mysql)){
     <td><?php echo $data["password"];?></td>
     <td><?php echo $data["email"];?></td>
     <td><?php echo $data["role"];?></td>
-    <td><span><a href='delete.php?id=<?php echo $data["id"];?>'>Hapus</a></span></td>
+    <td><span><a href='functionview.php?id=<?php echo $data["id"];?>'>Hapus</a></span></td>
     <td><span><a href='view edit.php?id=<?php echo $data["id"];?>'>Edit</a></span></td>
     <?php
     }?>

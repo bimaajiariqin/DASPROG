@@ -84,7 +84,7 @@ section p {
                     <li><a href="view_tarian.php">View Tarian</a></li>
                     <li><a href="view_transaksi.php">View Transaksi</a></li>
                     <li><a href="view_masukan.php">View Masukan</a></li>
-                    <li><a href="index.php">LogIn</a></li>
+                    <li><a href="logout.php">LogOut</a></li>
                 </ul>
             </nav>
         </div>
@@ -93,7 +93,7 @@ section p {
     <section id="home">
         <div class="container">
             <h2>Selamat Datang Di View Admin <hr>yeayyyyyy</h2>
-            <p>This is a simple landing page.</p>
+            <p>Ndak Tau.</p>
         </div>
     </section>
 

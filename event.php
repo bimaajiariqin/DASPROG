@@ -32,6 +32,33 @@
             color: white;
         }
 
+        .search-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-form input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .search-form input[type="submit"] {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.5s;
+        }
+
+        .search-form input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
         .event-card {
             background: #fafafa;
             border: 1px solid #ddd;
@@ -40,11 +67,11 @@
             padding: 15px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s;
+            transition: transform 1s;
         }
 
         .event-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
@@ -81,7 +108,7 @@
             text-align: center;
             border-radius: 5px;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: background 1s;
         }
 
         .btn-daftar:hover, .pencet:hover {
@@ -98,13 +125,26 @@
 <body>
     <section class="badan">
         <h1>Jadwal Event</h1>
+        
+        <form class="search-form" method="GET" action="">
+            <input type="text" name="search" placeholder="Cari Nama Tarian...">
+            <input type="submit" value="Cari">
+        </form>
+
         <?php
         $nomor = 1;
         $mysqli = new mysqli('localhost', 'root', '', 'web_tarian');
+
+        $search_query = "";
+        if (isset($_GET['search'])) {
+            $search_query = $mysqli->real_escape_string($_GET['search']);
+        }
+
         $query_mysql = mysqli_query($mysqli, "
             SELECT event.*, tarian.nama_tarian 
             FROM event 
             JOIN tarian ON event.id_tarian = tarian.id_tarian
+            WHERE tarian.nama_tarian LIKE '%$search_query%'
         ") or die(mysqli_error($mysqli));
 
         while ($data = mysqli_fetch_array($query_mysql)) {
@@ -138,7 +178,7 @@
                 </div>
                 
             </div>
-            <a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>" class="btn-daftar">Info Pemesanan</a>
+            <a href="pemesanan.php?event_id=<?php echo $data["id_event"]; ?>&nama_event=<?php echo urlencode($data["nama_event"]); ?>" class="btn-daftar">Info Pemesanan</a>
         </div>
         <?php } ?>
         <a href="tugas-sms-1.php" class="pencet">Kembali</a>
