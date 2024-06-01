@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT t.total, u.username, u.email, e.nama_event, tar.nama_tarian
+$sql = "SELECT t.total, u.username, u.email, e.nama_event, tar.nama_tarian, e.harga, t.jumlah_pembelian
         FROM transaksi t
         JOIN user u ON t.id_user = u.id
         JOIN event e ON t.id_event = e.id_event
@@ -46,7 +46,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pembayaran</title>
 <style>
-    /* style.css */
+   /* style.css */
 
 body {
     font-family: 'Arial', sans-serif;
@@ -111,28 +111,31 @@ button[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center; /* Tambahkan */
 }
 
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-
 a.btn {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    color: #fff; 
-    background-color: red; 
+    color: #fff;
+    background-color: red;
     border: none;
-    border-radius: 5px; 
-    text-decoration: none; 
+    border-radius: 5px;
+    text-decoration: none;
     text-align: center;
-    transition: background-color 1s ease; 
+    transition: background-color 1s ease;
+    margin-top: 10px; /* Tambahkan */
+}
+
 a.btn:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
-}
+
 </style>
 </head>
 <body>
@@ -142,6 +145,8 @@ a.btn:hover {
         <p>Email: <?= htmlspecialchars($transaksi['email']) ?></p>
         <p>Event: <?= htmlspecialchars($transaksi['nama_event']) ?></p>
         <p>Tarian: <?= htmlspecialchars($transaksi['nama_tarian']) ?></p>
+        <p>Harga: <?= htmlspecialchars($transaksi['harga']) ?></p>
+        <p>Jumlah Pembelian <?= htmlspecialchars($transaksi['jumlah_pembelian']) ?></p>
         <p>Total Harga: Rp<?= number_format($transaksi['total'], 2, ',', '.')  ?></p>
         
         <form action="function_pembayaran.php" method="POST">
@@ -158,7 +163,7 @@ a.btn:hover {
 
             <button type="submit">Bayar</button>
         </form>
-        <a href="pemesanan.php" class="btn">Kembali</a>
+        <a href="event.php" class="btn">Kembali</a>
     </div>
 </body>
 </html>

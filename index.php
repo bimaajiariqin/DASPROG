@@ -11,36 +11,28 @@ if(isset($_POST["login"])){
     $result = mysqli_query($mysqli," SELECT * FROM user WHERE email= '$email' AND password='$password'");
 
     //cek username
-    if( mysqli_num_rows($result )>0){
-    $row =mysqli_fetch_assoc($result );
-    if($row['role']=="Admin"){
-
-
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = 'Admin';
-        //alihkan ke halaman dashboard admin
-        header("location:lpadmin.php");
-
-    //cek jika user login sebagai user        
-    }
-    else if($row['role']=="User"){
-        //buat session login dan username   
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = 'User';
-        //alihkan ke halaman dashboard user
-        header("location:tugas-sms-1.php");
-
-    }else{
-
-        //alihkan ke halaman user kembali
-        header("location:index.php");
+    if(mysqli_num_rows($result ) > 0){
+        $row = mysqli_fetch_assoc($result);
+        if($row['role']=="Admin"){
+            $_SESSION['username'] = $row['username']; // Set sesi username
+            $_SESSION['email'] = $email; // Set sesi email
+            $_SESSION['role'] = 'Admin';
+            //alihkan ke halaman dashboard admin
+            header("location: lpadmin.php");
+            exit();
+        } else if($row['role']=="User"){
+            //buat session login dan username   
+            $_SESSION['username'] = $row['username']; // Set sesi username
+            $_SESSION['email'] = $email; // Set sesi email
+            $_SESSION['role'] = 'User';
+            //alihkan ke halaman dashboard user
+            header("location: tugas-sms-1.php");
+            exit();
+        }
+    } else {
+        $error=true;
     }
 }
-
-
-    $error=true;
-}
-
 ?>
 
 <!DOCTYPE html>

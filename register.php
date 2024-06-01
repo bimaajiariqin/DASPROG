@@ -129,14 +129,7 @@ label {
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email"required>
                 </div>
-                <div class="form-group">
-                    <label for="role">Role</label>
-                     <select class="form-control" id="role" name="role" required>
-                       <option value="" disabled selected>Pilih Role</option>
-                       <option value="Admin">Admin</optio>
-                       <option value="User">User</option>
-                     </select>
-                    </div>
+                <input type="hidden" value="User" id="role" name="role">    
 
 
                 
