@@ -265,9 +265,6 @@ $conn->close();
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Profil Pengguna dan Riwayat Pemesanan</h1>
-    </div>
     <div class="container">
         <div class="profile-info">
             <label for="username">Username:</label>
@@ -307,8 +304,6 @@ $conn->close();
             <?php endif; ?>
         </div>
     </div>
-    <div class="footer">
-        <p>&copy; 2024 - Web Tarian</p>
-    </div>
+   
 </body>
 </html>

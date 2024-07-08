@@ -16,7 +16,7 @@ $sql->bind_param("ssi", $payment_method, $payment_details, $id_transaksi);
 
 if ($sql->execute() === TRUE) {
     // Redirect to the main page
-    header("Location: riwayat_pemesanan.php");
+    header("Location: pro.php");
     exit();
 } else {
     echo "Error: " . $sql->error;
